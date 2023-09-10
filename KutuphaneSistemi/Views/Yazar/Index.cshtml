@@ -1,0 +1,56 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Yazar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Yazar Sayfası</h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color: rgb(252, 178,22)">
+        <th>Id</th>
+        <th>Yazar İsim</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+        <th>Kitapları</th>
+    </tr>
+    <tbody>
+        @{ string durum = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Durum == true)
+            {
+                durum = "Aktif";
+            }
+            if(x.Durum == false)
+            {
+                durum = "Pasif";
+            }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Yazarad @x.Soyad</td>
+                    <td>@durum</td>
+                    <td>
+                        @Html.ActionLink("Aktif Yap", "Aktif", new { id= x.Id} , new {@class="btn btn-info", onclick ="return confirm('Aktif yapmak istiyor musunuz?')"})
+                        @Html.ActionLink("Pasif Yap","Pasif", new {id =x.Id} , new {@class="btn btn-danger" ,onclick= "return confirm('Pasif yapmak istiyor musunuz?')" })
+                    </td>
+                    <td>
+                        <a href="/Yazar/Guncelle/@x.Id" class="btn btn-success">Yazar Güncelle</a>
+                    </td>
+                    <td>
+                        <a href="/Yazar/Detay/@x.Id" class="btn btn-group" style="background-color:darkcyan; color:white;">Yazar Detay</a>
+                    </td>
+                    <td>
+                        <a href="/Yazar/Kitaplar/@x.Id" class="btn btn-group" style="background-color:cadetblue; color:white;">Yazarın Kitapları</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+<div style="margin-top:20px;">
+    <a href="/Yazar/Ekle/" class="btn btn-primary">Yazar Ekle</a>
+</div>

@@ -1,0 +1,25 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Personel
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kategori Ekleme Sayfası</h3>
+</div>
+<form class="form-group" method="post">
+    <div style="margin-top:20px;">
+        <label>Personel Ad:</label>
+        <input type="text" name="Personelad" value=""  class="form-control"/>
+        @Html.ValidationMessageFor(x=>x.Personelad, "", new {@style="color:red"})
+    </div>
+    <div style="margin-top:20px;">
+        <label>Personel Soyad:</label>
+        <input type="text" name="Personelsoyad" value="" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Personelsoyad, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-primary">Personel Ekle</button>
+    </div>
+</form>

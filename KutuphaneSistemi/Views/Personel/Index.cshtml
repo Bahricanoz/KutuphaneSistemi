@@ -1,0 +1,48 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Personel Sayfası</h3>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Personel İsim</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @{string durum = ""; }
+            @foreach(var x in Model)
+                {
+                        if(x.Durum == true)
+                        {
+                            durum = "Aktif";
+                    }
+                    if(x.Durum == false)
+                    {
+                        durum = "Pasif";
+                    }
+                    <tr>
+                        <td>@x.Id</td>
+                        <td>@x.Personelad @x.Personelsoyad</td>
+                        <td>@durum</td>
+                        <td>
+                            <a href="/Personel/Aktif/@x.Id" class="btn btn-info">Aktif Yap</a>
+                            <a href="/Personel/Pasif/@x.Id" class="btn btn-danger">Pasif Yap</a>
+                        </td>
+                        <td>
+                            <a href="/Personel/Guncelle/@x.Id" class="btn btn-success">Personel Güncelle</a>
+                        </td>
+                    </tr>
+                }
+    </tbody>
+</table>
+<div style="margin-top:20px;">
+    <a href="/Personel/Ekle/" class="btn btn-primary">Personel Ekle</a>
+</div>

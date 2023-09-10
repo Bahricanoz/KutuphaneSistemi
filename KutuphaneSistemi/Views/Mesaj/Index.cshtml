@@ -1,0 +1,35 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Mesaj>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Mesajlar Sayfası</h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color: rgb(252,178, 22)">
+        <th>Id</th>
+        <th>Mesaj Gönderen</th>
+        <th>Tarih</th>
+        <th>İşlemler</th>
+        <th>Detay</th>
+    </tr>
+    <tbody>
+        @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name</td>
+                    <td>@Convert.ToDateTime(x.Tarih).ToShortDateString()</td>
+                    <td>
+                         @Html.ActionLink("Mesaj Sil","Sil", new { id=x.Id},new { @class = "btn btn-danger" ,onclick = "return confirm('Mesajı silmek istiyor musunuz ?')" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Mesaj Detay","Detay", new {id = x.Id}, new {@class="btn btn-success", onclick="return confirm('Mesaj sayfasından ayrılmak istiyor musunuz ?')"})
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

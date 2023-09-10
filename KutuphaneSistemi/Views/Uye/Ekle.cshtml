@@ -1,0 +1,54 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Uye
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Üye Ekleme Sayfası</h3>
+</div>
+<form method="post" class="form-group">
+    <div style="margin-top:20px;">
+        <label>Ad:</label>
+        <input type="text" name="Ad" class="form-control" />
+        @Html.ValidationMessageFor(x=>x.Ad, "", new {@style="color:red"})
+    </div>
+    <div style="margin-top:20px;">
+        <label>Soyad:</label>
+        <input type="text" name="Soyad" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Soyad, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mail:</label>
+        <input type="text" name="Mail" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Mail, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Telefon:</label>
+        <input type="text" name="Telefon" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Telefon, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Okul:</label>
+        <input type="text" name="Okul" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Okul, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yaş:</label>
+        <input type="text" name="Yas" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Yas, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kullanıcı Adı:</label>
+        <input type="text" name="Kullaniciadi" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Kullaniciadi, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Şifre:</label>
+        <input type="text" name="Sifre" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Sifre, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-primary">Üye Ekle</button>
+    </div>
+</form>

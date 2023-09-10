@@ -1,0 +1,49 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kategori Sayfası</h3>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kategori Ad</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @{ string durum = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Durum== true)
+            {
+                durum = "Aktif";
+            }
+            if(x.Durum == false)
+            {
+                durum = "Pasif";
+            }
+
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.KategoriAd</td>
+                    <td>@durum</td>
+                    <td>
+                        <a href="/Kategori/Aktif/@x.Id" class="btn btn-info" onclick="return confirm('Aktif yapmak ister misiniz ?')">Aktif Yap</a>
+                        <a href="/Kategori/Pasif/@x.Id" class="btn btn-danger" onclick="return confirm('Pasif yapmak ister misiniz ?')">Pasif Yap</a>
+                    </td>
+                    <td>
+                        <a href="/Kategori/Guncelle/@x.Id" class="btn btn-success">Kategori Güncelle</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+<div style="margin-top:20px;">
+    <a href="/Kategori/Ekle/" class="btn btn-primary">Kategori Ekle</a>
+</div>

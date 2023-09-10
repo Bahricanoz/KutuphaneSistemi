@@ -1,0 +1,48 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Hareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h3>Kitap İade Sayfası</h3>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Üye</th>
+        <th>Kitap</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>Durum</th>
+        <th>İade İşlemi</th>
+    </tr>
+    <tbody>
+        @{ string durum = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Durum== false)
+            {
+                durum = "Teslim Alınmadı";
+            }
+            if(x.Durum == true)
+            {
+                durum = "Teslim Alındı";
+            }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Tbl_Uye.Ad @x.Tbl_Uye.Soyad</td>
+                    <td>@x.Tbl_Kitap.Kitapad</td>
+                    <td>@x.Tbl_Personel.Personelad @x.Tbl_Personel.Personelsoyad</td>
+                    <td>@Convert.ToDateTime(x.Alistarihi).ToString("dd/MM/yyyy")</td>
+                    <td>@Convert.ToDateTime(x.İadetarih).ToString("dd/MM/yyyy")</td>
+                    <td>@durum</td>
+                    <td>
+                        <a href="/OduncKitapAl/Teslimet/@x.Id" class="btn btn-group" style="background-color:aqua">Kitap İade Et</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

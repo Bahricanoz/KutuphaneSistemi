@@ -1,0 +1,29 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Duyurular
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h4 style="color: lightseagreen; "><i>Duyuru Detay Sayfası</i></h4>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Konu:</td>
+        <td>
+            @Html.TextBoxFor(x => x.Konu, new { @class = "form-control", @readonly = "readonly" })
+        </td>
+    </tr>
+    <tr>
+        <td>Tarih:</td>
+        <td>
+            @Html.TextBoxFor(x => x.Tarih,"{0: dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
+        </td>
+    </tr>
+    <tr>
+        <td>Konu:</td>
+        <td>
+            @Html.TextAreaFor(x => x.Icerik, new { @class = "form-control", @readonly = "readonly" , @style="height:300px;"})
+        </td>
+    </tr>
+</table>

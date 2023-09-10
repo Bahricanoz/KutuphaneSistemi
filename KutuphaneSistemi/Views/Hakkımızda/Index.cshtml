@@ -1,0 +1,27 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Hakkımızda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Hakkımızda Sayfası</h3>
+</div>
+<form class="form-group" method="post">
+    @foreach(var x in Model)
+     {
+        <div style="margin-top:20px;">
+            <label>İçerik 1:</label>
+            <textarea type="text" name="icerik1" style="height:100px;" class="form-control">@x.icerik1</textarea>
+        </div> 
+        <div style="margin-top:20px;">
+            <label>İçerik 2:</label>
+            <textarea type="text" name="icerik2" style="height:100px;" class="form-control">@x.icerik2</textarea>
+        </div>
+        
+     }
+    <div style="margin-top:20px;">
+        <button class="btn btn-group" style="background-color:cadetblue; color:white;">Hakkımda Güncelle</button>
+    </div>
+</form>

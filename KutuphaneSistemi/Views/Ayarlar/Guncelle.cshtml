@@ -1,0 +1,31 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Admin
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Admin Güncelleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("Guncelle", "Ayarlar", FormMethod.Post))
+{
+    <div style="margin-top:20px;">
+        <label>Admin Id:</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kullanıcı Adı:</label>
+        @Html.TextBoxFor(x => x.Kullaniciadi, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Şifre:</label>
+        @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yetki:</label>
+        @Html.TextBoxFor(x => x.Yetki, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-group" style="background-color:purple; color:white;">Admin Güncelle</button>
+    </div>
+}

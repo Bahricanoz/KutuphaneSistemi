@@ -1,0 +1,27 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Yazar
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Yazar Detay Sayfası</h3>
+</div>
+<form class="form-group">
+    <div style="margin-top:20px;">
+        <label>Yazar Id:</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+    <label>Yazar Ad:</label>
+    @Html.TextBoxFor(x => x.Yazarad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+    <label>Yazar Soyad:</label>
+    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Detay:</label>
+        @Html.TextAreaFor(x => x.Detay, new { @class = "form-control", @readonly = "readonly",@style="height:100px;" })
+    </div>
+</form>

@@ -1,0 +1,35 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Hareket>
+@{
+    ViewBag.Title = "KitapIndex";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h4 style="color:slateblue"><i>Kitaplarım</i></h4>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        <th>Kitap Ad</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>Detay</th>
+        <th>İade Et</th>
+    </tr>
+    <tbody>
+        @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.Tbl_Kitap.Kitapad</td>
+                    <td>@Convert.ToDateTime(x.Alistarihi).ToShortDateString()</td>
+                    <td>@Convert.ToDateTime(x.İadetarih).ToShortDateString()</td>
+                    <td>
+                        <a href="/UyeKitap/Detay/@x.Tbl_Kitap.Id" class="btn btn-success">Kitap Detay</a>
+                    </td>
+                    <td>
+                        <a href="/UyeKitap/Iade/@x.Id" class="btn btn-group" style="background-color:purple; color:white;">Kitap İade Et</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

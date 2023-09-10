@@ -1,0 +1,36 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Yazar
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Yazar Güncelleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("Guncelle", "Yazar", FormMethod.Post))
+{
+    <div style="margin-top:20px;">
+        <label>Yazar Id:</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Ad:</label>
+        @Html.TextBoxFor(x => x.Yazarad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.Yazarad , "",new{ @style="color:red"})
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Soyad:</label>
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Soyad, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Detay:</label>
+        @Html.TextAreaFor(x => x.Detay, new { @class = "form-control", @style = "height:100px;" })
+        @Html.ValidationMessageFor(x => x.Detay, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-success">Yazar Güncelle</button>
+    </div>
+}

@@ -1,0 +1,5 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Hareket
+<div style="margin-top:20px;">
+    <label>Kitap Adı:</label>
+    @Html.DropDownListFor(x => x.Tbl_Kitap.Id, (List<SelectListItem>)ViewBag.kitap, "Lütfen Kitap Seçiniz", new { @class = "form-control", @required = "required" })
+</div>

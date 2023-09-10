@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Hesap";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3 style="color:cadetblue;"><i>Hesap Bilgileri</i></h3>
+</div>
+<form >
+    <table class="table table-hover">
+        <tr>
+            <td><label> Ad:</label></td>
+            <td>
+                @Session["Ad"].ToString()
+            </td>
+        </tr>
+        <tr>
+            <td><label> Soyad:</label></td>
+            <td>
+                @Session["Soyad"].ToString()
+            </td>
+        </tr>
+        <tr>
+            <td><label>Yas:</label></td>
+            <td>
+                @Session["Yas"].ToString()
+            </td>
+        </tr>
+
+        <tr>
+            <td><label> Okul:</label></td>
+            <td>
+                @Session["Okul"].ToString()
+            </td>
+        </tr>
+        <tr>
+            <td><label> Mail:</label></td>
+            <td>
+                @Session["Mail"].ToString()
+            </td>
+        </tr>
+        <tr>
+            <td><label> Telefon:</label></td>
+            <td>
+                @Session["Telefon"].ToString()
+            </td>
+        </tr>
+        <tr>
+            <td><label>Kullanıcı Adı:</label></td>
+            <td>
+                @Session["Kullaniciadi"].ToString()
+            </td>
+        </tr>
+    </table>
+</form>

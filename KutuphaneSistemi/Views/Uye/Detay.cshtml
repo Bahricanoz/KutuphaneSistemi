@@ -1,0 +1,47 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Uye
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Üye Detay Sayfası</h3>
+</div>
+<form class="form-group">
+    <div style="margin-top:20px;">
+        <label>Üye Ad:</label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Üye Soyad:</label>
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mail:</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Telefon:</label>
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Okul:</label>
+        @Html.TextBoxFor(x => x.Okul, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yaş:</label>
+        @Html.TextBoxFor(x => x.Yas, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Durum:</label>
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kullanıcı Adı:</label>
+        @Html.TextBoxFor(x => x.Kullaniciadi, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Şifre:</label>
+        @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+</form>

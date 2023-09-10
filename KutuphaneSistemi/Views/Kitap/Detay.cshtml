@@ -1,0 +1,51 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Kitap
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kitap Detay Sayfası</h3>
+</div>
+<form class="form-group">
+    <div style="margin-top:20px;">
+        <label>Kitap Adı:</label>
+        @Html.TextBoxFor(x => x.Kitapad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kategori:</label>
+        @Html.TextBoxFor(x => x.Tbl_Kategori.KategoriAd, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Ad:</label>
+        @Html.TextBoxFor(x => x.Tbl_Yazar.Yazarad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Soyad:</label>
+        @Html.TextBoxFor(x => x.Tbl_Yazar.Soyad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Sayfa Sayısı:</label>
+        @Html.TextBoxFor(x => x.Sayfasayisi, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yayın Evi:</label>
+        @Html.TextBoxFor(x => x.Yayinevi, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Basım Yılı:</label>
+        @Html.TextBoxFor(x => x.Basyımyılı, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Durum:</label>
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kitap Fotoğraf:</label>
+        @Html.TextBoxFor(x => x.Foto, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kitap Detay:</label>
+        @Html.TextAreaFor(x => x.Detay, new { @class = "form-control", @readonly = "readonly" , @style="height:200px;"})
+    </div>
+</form>

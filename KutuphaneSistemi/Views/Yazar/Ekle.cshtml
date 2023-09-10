@@ -1,0 +1,31 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Yazar
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Yazar Ekleme Sayfası</h3>
+</div>
+<form method="post" class="form-group">
+    <div style="margin-top:20px;">
+        <label>Yazar Ad:</label>
+        <input type="text" name="Yazarad" value="" class="form-control"/>
+        @Html.ValidationMessageFor(x=>x.Yazarad, "", new {@style="color:red"})
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Soyad:</label>
+        <input type="text" name="Soyad" value="" class="form-control" />
+        @Html.ValidationMessageFor(x => x.Soyad, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar Detay:</label>
+        <textarea name="Detay" class="form-control" style="height:100px;"></textarea>
+        @Html.ValidationMessageFor(x => x.Detay, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-primary">Yazar Ekle</button>
+    </div>
+</form>

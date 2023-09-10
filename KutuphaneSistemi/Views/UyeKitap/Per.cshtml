@@ -1,0 +1,7 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Hareket
+<tr>
+    <td>Kitap Ad:</td>
+    <td>
+        @Html.DropDownListFor(x => x.Tbl_Personel.Id, (List<SelectListItem>)ViewBag.per, "Lütfen Personel Seçiniz", new { @class = "form-control", @required = "required" })
+    </td>
+</tr>

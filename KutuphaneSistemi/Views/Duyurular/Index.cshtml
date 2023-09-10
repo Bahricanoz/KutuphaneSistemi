@@ -1,0 +1,55 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Duyurular>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Duyurular Sayfası</h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        <th>Id</th>
+        <th>Konu</th>
+        <th>Durum</th>
+        <th>Zaman</th>
+        <th>İşlemler</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+    </tr>
+    <tbody>
+        @{ string durum = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Durum== true)
+            {
+                durum = "Aktif";
+            }
+            if(x.Durum == false)
+            {
+                durum = "Pasif";
+            }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Konu</td>
+                    <td>@durum</td>
+                    <td>@Convert.ToDateTime(x.Tarih).ToShortDateString()</td>
+                    <td>
+                        @Html.ActionLink("Aktif Yap","Aktif", new {id=x.Id}, new {@class="btn btn-info", onclick="return confirm('Duyuruyu aktif etmek ister misiniz ?')"})
+                        @Html.ActionLink("Pasif Yap","Pasif", new {id=x.Id}, new {@class= "btn btn-group", @style = "background-color:silver;", onclick ="return confirm('Duyuru pasif etmek ister misiniz ?')"})
+                        @Html.ActionLink("Sil","Sil",new {id=x.Id}, new {@class="btn btn-danger", onclick="return confirm('Duyuru silmek ister misiniz ?')"})
+                    </td>
+                    <td>
+                        <a href="/Duyurular/Guncelle/@x.Id" class="btn btn-success">Duyuru Güncelle</a>
+                    </td>
+                    <td>
+                        <a href="/Duyurular/Detay/@x.Id" class="btn btn-group" style="background-color:darkcyan; color:white">Duyuru Detay</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+<div style="margin-top:20px;">
+    <a href="/Duyurular/Ekle/" class="btn btn-group" style="background-color:purple; color:white;">Duyuru Ekle</a>
+</div>

@@ -1,0 +1,40 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Hareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h3>İşlemler Sayfası</h3>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Üye İsim</th>
+        <th>Kitap Adı</th>
+        <th>Personel Adı</th>
+        <th>Alış Tarihi</th>
+        <th>Teslim Ettiği Tarih</th>
+        <th>Durum</th>
+    </tr>
+    <tbody>
+        @{ string durum = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Durum == true)
+            {
+                durum = "Kitap Teslim Alındı";
+            }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Tbl_Uye.Ad @x.Tbl_Uye.Soyad</td>
+                    <td>@x.Tbl_Kitap.Kitapad</td>
+                    <td>@x.Tbl_Personel.Personelad @x.Tbl_Personel.Personelsoyad</td>
+                    <td>@Convert.ToDateTime(x.Alistarihi).ToShortDateString()</td>
+                    <td>@Convert.ToDateTime(x.Teslimtarih).ToShortDateString()</td>
+                    <td>@durum</td>
+                </tr>
+            }
+    </tbody>
+</table>

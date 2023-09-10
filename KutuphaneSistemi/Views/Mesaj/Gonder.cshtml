@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Gonder";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Admin Mesaj Gönderme</h3>
+</div>
+<form class="form-group" method="post">
+    <div style="margin-top:20px;">
+        <label>Göndere Ad:</label>
+        <input type="text" name="Name" value="Admin" class="form-control" readonly="readonly" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mail:</label>
+        <input type="text" name="Maik" value="Admin@gmail.com" class="form-control" readonly="readonly" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Telefon</label>
+        <input type="text" name="Telefon" value="05463122134" class="form-control" readonly="readonly" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Telefon</label>
+        <input type="text" name="Tarih" value="@DateTime.Now.ToShortDateString()" class="form-control" readonly="readonly" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Telefon</label>
+        <input type="text" name="Alıcımail" class="form-control" required="required" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mesaj:</label>
+        <textarea class="form-control" required="required" style="height:100px"; name="Mesaj"></textarea>
+    </div>
+    <div style="margin-top:20px;">
+        <button style="background-color:purple; color:white;" class="btn btn-group">Mesaj Gönder</button>
+    </div>
+</form>

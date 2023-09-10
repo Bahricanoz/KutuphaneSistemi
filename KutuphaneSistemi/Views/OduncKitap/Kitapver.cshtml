@@ -1,0 +1,25 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Hareket
+@{
+    ViewBag.Title = "Kitapver";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kitap Verme Sayfası</h3>
+</div>
+<form method="post" class="form-group">
+    @Html.Action("Uye")
+    @Html.Action("Kitap")
+    @Html.Action("Per")
+    <div style="margin-top:20px">
+        <label>Kitap Alış Tarihi:</label>
+        <input type="text" name="Alistarihi" value="@DateTime.Now.ToShortDateString()" class="form-control" readonly="readonly" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kitap İade Tarihi:</label>
+        <input type="text" name="İadetarih" value="@DateTime.Now.AddDays(1).ToShortDateString()"  class="form-control" readonly="readonly"/>
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-group" style="background-color:darkorchid; color:white">Kitap Teslim Et</button>
+    </div>
+</form>

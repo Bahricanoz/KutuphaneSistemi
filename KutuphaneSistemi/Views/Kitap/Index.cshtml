@@ -1,0 +1,59 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Kitap>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kitap Sayfası</h3>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kitap Adı</th>
+        <th>Kategori </th>
+        <th>Yazar Adı</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+        
+    </tr>
+    <tbody>
+
+        @{ string durum = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Durum == true)
+            {
+                durum = "Aktif";
+            }
+            if(x.Durum == false)
+            {
+                durum = "Pasif";
+            }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Kitapad</td>
+                    <td>@x.Tbl_Kategori.KategoriAd</td>
+                    <td>@x.Tbl_Yazar.Yazarad @x.Tbl_Yazar.Soyad</td>
+                    <td>@durum</td>
+                    <td>
+                        @Html.ActionLink("Aktif Yap","Aktif",new { id = x.Id}, new {@class="btn btn-info", onclick="return confirm('Aktif yapmak ister misiniz ?')"})
+                        @Html.ActionLink("Pasif Yap","Pasif", new {id = x.Id}, new {@class="btn btn-danger", onclick="return confirm('Pasif yapmak ister misiniz ?')"})
+                    </td>
+                    <td>
+                        <a href="/Kitap/Guncelle/@x.Id" class="btn btn-success">Kitap Güncelle</a>
+                    </td>
+                    <td>
+                        <a href="/Kitap/Detay/@x.Id" class="btn btn-warning">Kitap Detay</a>
+                    </td>
+                    
+                </tr>
+            }
+    </tbody>
+</table>
+<div style="margin-top:20px;">
+    <a href="/Kitap/Ekle/" class="btn btn-primary">Kitap Ekle</a>
+</div>

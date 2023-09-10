@@ -1,0 +1,29 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Duyurular>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h4 style="color:lightseagreen"><i>Duyurular Sayfası</i></h4>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        <th>Id</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Detay</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Konu</td>
+                    <td>@Convert.ToDateTime(x.Tarih).ToShortDateString()</td>
+                    <td>
+                        @Html.ActionLink("Duyuru Detay", "Detay", new {id=x.Id}, new {@class="btn btn-group",@style= "background-color:purple; color:white;", onclick="return confirm('Duyuru detay sayfasına gitmek istiyor musunuz?')" })
+                    </td>
+                </tr>
+            }
+</table>

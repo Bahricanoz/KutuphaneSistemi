@@ -1,0 +1,48 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Kitap
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kitap Ekleme Sayfası</h3>
+</div>
+<form method="post" class="form-group">
+    <div style="margin-top:20px;">
+        <label>Kitap Adı:</label>
+        @Html.TextBoxFor(x => x.Kitapad, new { @class = "form-control", @required = "required" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kategori:</label>
+        @Html.DropDownListFor(x => x.Tbl_Kategori.Id, (List<SelectListItem>)ViewBag.kat,"Lütfen Kategori Seçiniz" ,new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yazar:</label>
+        @Html.DropDownListFor(x => x.Tbl_Yazar.Id, (List<SelectListItem>)ViewBag.yaz,"Lütfen Yazar Seçiniz" ,new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Yayınevi:</label>
+        @Html.TextBoxFor(x => x.Yayinevi, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Basımyılı:</label>
+        @Html.TextBoxFor(x => x.Basyımyılı, new { @class = "form-control", @required = "required" })
+
+    </div>
+    <div style="margin-top:20px;">
+        <label>Sayfa Sayısı:</label>
+        @Html.TextBoxFor(x => x.Sayfasayisi, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kitap Fotoğraf:</label>
+        @Html.TextBoxFor(x => x.Foto, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kitap Detay:</label>
+        @Html.TextAreaFor(x => x.Detay, new { @class = "form-control", @required = "required", @style="height:150px;" })
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-primary">Kitap Ekle</button>
+    </div>
+</form>

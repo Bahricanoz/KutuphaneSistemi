@@ -1,0 +1,44 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Hareket
+@{
+    ViewBag.Title = "Iade";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3 style="color:slateblue;"><i>Üye Kitap İade Sayfası</i></h3>
+</div>
+@using (Html.BeginForm("Iade", "UyeKitap", FormMethod.Post))
+ {
+    <table class="table table-striped">
+        <tr>
+            <td>Kitap Ad:</td>
+            <td>@Html.TextBoxFor(x => x.Tbl_Kitap.Kitapad, new { @class = "form-control", @readonly = "readonly" })</td>
+        </tr>
+        <tr>
+            <td>Personel Ad:</td>
+            <td>@Html.TextBoxFor(x => x.Tbl_Personel.Personelad, new { @class = "form-control", @readonly = "readonly" })</td>
+        </tr>
+        <tr>
+            <td>Alış Tarihi:</td>
+            <td>@Html.TextBoxFor(x => x.Alistarihi, new { @class = "form-control", @readonly = "readonly" })</td>
+        </tr>
+        <tr>
+            <td>İade Edilmesi Gerken Tarih:</td>
+            <td>@Html.TextBoxFor(x => x.İadetarih, new { @class = "form-control", @readonly = "readonly" })</td>
+        </tr>
+        <tr>
+            <td>İade Edilen Tarih:</td>
+            <td>
+                <input type="text" name="Teslimtarih" value="@DateTime.Now.ToShortDateString()" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="btn btn-group" style="background-color:purple; color:white;">
+                    Kitap İade
+                </button>
+            </td>
+        </tr>
+    </table>
+ }

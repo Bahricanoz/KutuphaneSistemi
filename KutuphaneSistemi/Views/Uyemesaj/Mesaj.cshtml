@@ -1,0 +1,27 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Mesaj>
+@{
+    ViewBag.Title = "Mesaj";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3 style="color:slateblue;"><i>Gönderilen Mesajlar</i></h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        <th>Mail Adresi</th>
+        <th>Detay</th>
+        <th>Tarih</th>
+    </tr>
+    <tbody>
+        @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.Alıcımail</td>
+                    <td>@x.Mesaj</td>
+                    <td>@Convert.ToDateTime(x.Tarih).ToShortDateString()</td>
+                </tr>
+            }
+    </tbody>
+</table>

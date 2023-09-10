@@ -1,0 +1,44 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Hareket
+@{
+    ViewBag.Title = "Teslimet";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px">
+    <h3>Kitap Teslim Alma Sayfası</h3>
+</div>
+@using (Html.BeginForm("Guncelle", "OduncKitapAl", FormMethod.Post))
+{
+    <div style="margin-top:20px;">
+        <label>Hareket Id:</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Üye Ad:</label>
+        @Html.TextBoxFor(x => x.Tbl_Uye.Ad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Kitap Ad:</label>
+        @Html.TextBoxFor(x => x.Tbl_Kitap.Kitapad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Personel Ad:</label>
+        @Html.TextBoxFor(x => x.Tbl_Personel.Personelad, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Alış Tarihi:</label>
+        @Html.TextBoxFor(x => x.Alistarihi, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>İade Edilmesi Gereken Tarih:</label>
+        @Html.TextBoxFor(x => x.İadetarih,  new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>İade Edilen Tarih</label>
+        <input type="text" name="Teslimtarih" value="@DateTime.Now.ToShortDateString()" class="form-control"/>
+    </div>
+    
+    <div style="margin-top:20px;">
+        <button class="btn btn-group" style="background-color:aqua;">Ödünç Kitap Teslim Al</button>
+    </div>
+}

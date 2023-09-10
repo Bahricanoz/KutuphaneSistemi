@@ -1,0 +1,35 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Mesaj
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Mesaj Detay Sayfası</h3>
+</div>
+<form class="form-group">
+    <div style="margin-top:20px;">
+        <label>Mesaj Id:</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mesaj Gönderen:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mail Adresi:</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Telefon:</label>
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mesaj Tarih:</label>
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Mesaj Detay:</label>
+        @Html.TextAreaFor(x => x.Mesaj, new { @class = "form-control", @readonly = "readonly" , @style="height:150px;"})
+    </div>
+</form>

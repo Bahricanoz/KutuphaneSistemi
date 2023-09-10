@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Duyuru Ekleme Sayfası</h3>
+</div> 
+<form method="post" class="form-group">
+    <div style="margin-top:20px;">
+        <label>Konu:</label>
+        <input type="text" name="Konu" class="form-control" required="" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>Tarih:</label>
+        <input type="text" name="Tarih" class="form-control"  value="@DateTime.Now.ToShortDateString()" readonly="readonly" />
+    </div>
+    <div style="margin-top:20px;">
+        <label>İçerik:</label>
+        <textarea class="form-control" required="" name="Icerik" style="height:100px;"></textarea>
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-group" style="background-color:purple; color:white;">Duyuru Ekle</button>
+    </div>
+</form>

@@ -1,0 +1,67 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3 style="color:cadetblue">Admin Sayfası</h3>
+</div>
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Kulanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Yetki</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @{ string durum = "";}
+        @{ string link = ""; string arkaplan = ""; string yazı = "";}
+
+        @foreach (var x in Model)
+        {
+            if (x.Durum == true)
+            {
+                durum = "Aktif";
+                link = "/Ayarlar/Pasif";
+                arkaplan = "btn btn-warning";
+                yazı = "Pasif Yap";
+
+            }
+            if (x.Durum == false)
+            {
+                durum = "Pasif";
+                link = "/Ayarlar/Aktif";
+                arkaplan = "btn btn-primary";
+                yazı = "Aktif Yap";
+
+
+            }
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Kullaniciadi</td>
+                <td>@x.Sifre</td>
+                <td>@x.Yetki</td>
+                <td>@durum</td>
+                <td>
+                    <a href="@link/@x.Id" class="@arkaplan">@yazı</a>
+                </td>
+                <td>
+                    <a href="/Ayarlar/Sil/@x.Id" class="btn btn-danger" onclick="return confirm('@x.Kullaniciadi adlı admini silmek istiyor musunuz?')">Admin Sil</a>
+                </td>
+                <td>
+                    <a href="/Ayarlar/Guncelle/@x.Id" class="btn btn-success">Admin Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div style="margin-top:20px;">
+    <a href="/Ayarlar/Ekle/" class="btn btn-info">Admin Ekle</a>
+</div>

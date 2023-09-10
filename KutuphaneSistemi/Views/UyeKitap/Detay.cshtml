@@ -1,0 +1,62 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Kitap
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+<div style="margin-top:20px;">
+    <h3 style="color:slateblue"><i>Kitap Detay Sayfası</i></h3>
+</div>
+<form class="form-group">
+    <table class="table table-striped">
+        <tr>
+            <td><label style="font-weight:bolder">Kitap Adı:</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Kitapad, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Yazar Adı:</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Tbl_Yazar.Yazarad, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Yazar Soyadı:</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Tbl_Yazar.Soyad, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Kategori Adı:</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Tbl_Kategori.KategoriAd, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Yayınevi:</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Yayinevi, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Basım Yılı:</label></td>
+            <td>
+
+                @Html.TextBoxFor(x => x.Basyımyılı, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Sayfa Sayısı:</label></td>
+            <td>
+
+                @Html.TextBoxFor(x => x.Sayfasayisi, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+        <tr>
+            <td><label style="font-weight:bolder">Kitap Detay:</label></td>
+            <td>
+                @Html.TextAreaFor(x => x.Detay, new { @class = "form-control", @readonly = "readonly",@style="height:150px" })
+            </td>
+        </tr>
+    </table>
+</form>

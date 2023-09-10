@@ -1,0 +1,39 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Hareket
+@{
+    ViewBag.Title = "KitapAl";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h4 style="color:slateblue"><i>Ödünç Kitap Alma</i></h4>
+</div>
+<form method="post">
+    <table class="table table-striped">
+        <tr>
+            <td>Üye Ad:</td>
+            <td> 
+                <input type="text" name="Uyeid" value="@Session["Id"].ToString()" readonly="readonly" class="form-control"/>
+            </td>
+        </tr>
+        @Html.Action("Kitap")
+        @Html.Action("Per")
+        <tr>
+            <td>Alış Tarihi:</td>
+            <td>
+                <input type="text" name="Alistarihi" value="@DateTime.Now.ToShortDateString()" readonly="readonly" class="form-control"/>
+            </td>
+        </tr>
+        <tr>
+            <td>İade Tarihi:</td>
+            <td>
+                <input type="text" name="İadetarih" value="@DateTime.Now.AddDays(1).ToShortDateString()" readonly="readonly" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="btn btn-success">Ödünç Kitap Al</button>
+            </td>
+        </tr>
+    </table>
+</form>

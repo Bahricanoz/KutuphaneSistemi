@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Gonder";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+<div style="margin:20px 0px;">
+    <h3 style="color:slateblue"><i>Mesaj Gönderme Sayfası</i></h3>
+</div>
+<form class="form-group" method="post">
+    <table class="table table-striped">
+        <tr>
+            <td>Gönderen:</td>
+            <td>
+                <input type="text" name="Name" value="@Session["Ad"].ToString() @Session["Soyad"].ToString() " class="form-control" readonly="readonly" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mail Adresi:</td>
+            <td>
+                <input type="text" name="Mail" value="@Session["Mail"].ToString() " class="form-control" readonly="readonly" />
+            </td>
+        </tr>
+        <tr>
+            <td>Telefon:</td>
+            <td>
+                <input type="text" name="Telefon" value="@Session["Telefon"].ToString() " class="form-control" readonly="readonly" />
+            </td>
+        </tr>
+        <tr>
+            <td>Tarih:</td>
+            <td>
+                <input type="text" name="Tarih" value="@DateTime.Now.ToShortDateString()" class="form-control" readonly="readonly" />
+            </td>
+        </tr>
+        <tr>
+            <td>Alıcı Mail Adresi:</td>
+            <td>
+                <input type="text" name="Alıcımail" inputmode="email" class="form-control" required="" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mesaj:</td>
+            <td>
+                <textarea type="text" name="Mesaj"  class="form-control" required="" style="height:100px;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="btn btn-group" style="background-color:cadetblue; color:white">Mesaj Gönder</button>
+            </td>
+        </tr>
+    </table>
+</form>
+

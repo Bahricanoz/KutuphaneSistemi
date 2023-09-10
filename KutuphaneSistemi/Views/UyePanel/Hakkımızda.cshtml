@@ -1,0 +1,19 @@
+﻿@using KutuphaneSistemi.Models.Entitiy
+@model List<Tbl_Hakkımızda>
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_UyeLayout.cshtml";
+}
+
+<div style="margin:20px 0px;">
+    <h3 style="color:cadetblue"><i>Hakkımızda</i></h3>
+</div>
+
+<div >
+       @foreach(var x in Model)
+            {
+                <p>@x.icerik1</p>
+                <br />
+                <p>@x.icerik2</p>
+            }
+</div>

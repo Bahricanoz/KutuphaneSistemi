@@ -1,0 +1,20 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Kategori
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Kategori Ekleme Sayfası</h3>
+</div>
+<form method="post" class="form-group">
+    <div style="margin-top:20px;">
+        <label>Kategori Ad:</label>
+        <input type="text" name="KategoriAd" value=""  class="form-control" />
+        @Html.ValidationMessageFor(x=>x.KategoriAd, "", new {@style="color:red;"})
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-primary">Kategori Ad</button>
+    </div>
+</form>
+

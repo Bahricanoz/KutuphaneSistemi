@@ -1,0 +1,27 @@
+﻿@model KutuphaneSistemi.Models.Entitiy.Tbl_Duyurular
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px;">
+    <h3>Duyuru Güncelleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("Guncelle", "Duyurular", FormMethod.Post))
+{
+    <div style="margin-top:20px;">
+        <label>Konu:</label>
+        @Html.TextBoxFor(x => x.Konu, new { @class = "form-control", @required = "required" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Tarih:</label>
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:20px;">
+        <label>Konu:</label>
+        @Html.TextAreaFor(x => x.Icerik, new { @class = "form-control", @required = "required", @style="height:100px;" })
+    </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-group" style="background-color:cadetblue; color:white">Duyuru Güncelle</button>
+    </div>
+}
