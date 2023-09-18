@@ -17,3 +17,5 @@ Proje Aşamaları:
 - Admin ve Üye login panel oluşturulması
 - Üye Session işleminin yapılması
 - Login ve logoutların yapılması
+- Error page sayfası oluşturulması
+- Admin panelinde rolleme (yetkilendirme) yapılması
