@@ -9,8 +9,10 @@ Proje Aşamaları:
 - Entity Framework Dbfirst ile veritabanı işlemleri
 - Admin ve üye layoutları oluşturulması
 - Admin panelinde temel listemelem , silme , ekleme ve güncelleme işlemi yapılması
+- Dropdownlist ile veri tabanından verilerin çekilmesi
 - Linq sorgular ile istatistik çekilmesi
 - Silme işlemi yerine aktif/pasif işleminin kullanılması
+- Hava durumu raporu widget eklenmesi
 - Vitrin panelinde veri tababından verilerin çekilmesi
 - Vitrin panelinde partial view kullanılması
 - Register sayfası oluşturulması register işleminin yapılması
